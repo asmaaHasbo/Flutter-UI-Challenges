@@ -1,74 +1,36 @@
 ## task2_clean_arch_and_widgets_tour
 
-### --------------------------------- challang one ----------------------
+# Task Manager Challenge 🎯
 
-### Project Overview
+A Flutter-based task management app with interactive features and clean design.
 
-The Task Manager App is a Flutter-based mobile application designed to manage tasks efficiently. It allows users to view, delete, mark as completed, and reorder tasks interactively. Built with Flutter's widget system, the app features a responsive and intuitive interface with swipe-to-delete, confirmation dialogs, and undo functionality. This project showcases clean code practices, modular design, and proper state management, making it an excellent learning resource for structuring Flutter applications.
+## 📱 Challenge Overview
+Allows viewing, deleting, marking as completed, and reordering tasks with confirmation dialogs and undo functionality.
 
----
+## ✨ Features
+- **Task List Management**: Shows an interactive task list.
+- **Swipe-to-Delete**: Swipe to delete with a confirmation dialog.
+- **Undo Deletion**: Offers "Undo" via SnackBar.
+- **Reorderable List**: Drag and drop to reorder tasks.
+- **Task Completion**: Toggles checkboxes with strikethrough.
 
-### Features
+## 🏗️ Code Summary
+- **`ChallengeOneScreen`**: Main screen with `ReorderableListView`, manages tasks and reordering.
+- **`DismissibleForList`**: Handles swipe deletion with confirmation and undo SnackBar.
+- **`ListItem`**: Displays tasks with drag handle and checkbox.
+- **`buildSnackBarForUndoDelete`**: Utility for undo SnackBar in `snackbar_utils.dart`.
+- **`buildConfirmationForDelete`**: Shows deletion confirmation dialog.
 
-- **Task List Management**: Displays an interactive list of tasks.
-- **Swipe-to-Delete**: Swipe tasks to delete, with a confirmation dialog to prevent errors.
-- **Undo Deletion**: Shows a SnackBar with an "Undo" option to restore deleted tasks.
-- **Reorderable List**: Allows drag-and-drop reordering of tasks.
-- **Task Completion**: Marks tasks as completed with a checkbox and strikethrough effect.
+Uses callbacks for modular state management.
 
----
+## 🔧 File Structure
+- `/lib/`
+  - `challenge_one_screen.dart`
+  - `dismissible_for_list.dart`
+  - `list_item.dart`
+  - `snackbar_utils.dart`
 
-### <span style="color: #E91E63;">Code Summary</span>
 
-The Task Manager App follows a clean architecture approach in Flutter, emphasizing modularity and maintainability. Below is a summary of the key components and their roles:
-
-- **`ChallengeOneScreen` (StatefulWidget)**:
-
-  - The main screen, featuring a `Scaffold` with an `AppBar` and a `ReorderableListView`.
-  - Manages the task list state (`List<String> tasks`) and handles reordering via the `onReorder` callback.
-  - Provides callbacks (`_removeTask` and `_undoRemoveTask`) to `DismissibleForList` to handle task deletion and undo operations, ensuring a single source of truth for state changes.
-
-- **`DismissibleForList` (StatelessWidget)**:
-
-  - A reusable widget wrapping each task in a `Dismissible` for swipe-to-delete functionality.
-  - Displays a red background with a delete icon during swipes.
-  - Triggers a confirmation dialog before deletion and a SnackBar with an "Undo" option after deletion.
-  - Relies on callbacks from `ChallengeOneScreen` to avoid direct state manipulation.
-
-- **`ListItem` (StatefulWidget)**:
-
-  - Represents a single task as a `Card` with a `ListTile`.
-  - Includes a drag handle for reordering, a task title, and a checkbox for marking tasks as completed.
-  - Applies a strikethrough effect to the title when the checkbox is checked.
-
-- **`buildSnackBarForUndoDelete` (Utility Function)**:
-
-  - Defined in `snackbar_utils.dart`, builds a `SnackBar` for undoable task deletions.
-  - Accepts a task, index, and callback for the undo action, promoting reusability.
-
-- **`buildConfirmationForDelete` (Utility Function)**:
-  - Displays an `AlertDialog` to confirm task deletion.
-  - Returns `true` to confirm or `false` to cancel, ensuring user intent is verified.
-
-The code ensures modularity by separating UI components, state management, and utilities. Callbacks are used to prevent direct state changes in child widgets, maintaining consistency and scalability.
-
----
-
-### <span style="color: #9C27B0;">File Structure</span>
-
-```plaintext
-lib/
-├── main.dart
-├── challenge1/
-│   ├── challenge_one_screen.dart          # Main screen with task list
-│   ├── widgets/
-│   │   ├── build_dismissible_for_list.dart  # Dismissible widget for tasks
-│   │   ├── build_confirmation_for_delete.dart  # Confirmation dialog utility
-│   │   ├── build_snack_bar_for_undo_delete.dart  # SnackBar utility
-│   │   ├── list_item.dart                # Task item widget
-├── utils/
-│   ├── snackbar_utils.dart               # SnackBar utility function
-```
 
 ### ------------------------------ challang two ----------------------------------
 # Drag and Drop Challenge 🔴🔵🟢
